@@ -22,6 +22,6 @@
     <string name="note_photo_no_image_description">Not image in Note Images</string>
     <string name="note_photo_button_description">Note Photo Button</string>
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">New Books</string>
+    <string name="menu_gallery">Shared Book Notes</string>
     <string name="menu_notes">Personal Collection</string>
 </resources>
