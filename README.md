@@ -12,7 +12,6 @@ BookApp comprises three main pages, each offering unique functionalities:
 
 2. **Shared Page:**
    - Showcases a collection of new notes fetched from an external API.
-   - Allows users to explore the latest releases in various genres.
 
 3. **Personal Collection:**
    - Holds a list of all the books the user is currently reading or has read.
