@@ -10,5 +10,6 @@ data class Note(
     @PrimaryKey val id: UUID,
     val title: String,
     val description: String? = null,
-    val date: Date
+    val date: Date,
+    val photoFileName: String? = null
 )

@@ -20,6 +20,8 @@ import kotlinx.coroutines.launch
 import java.util.Date
 import java.util.UUID
 
+private const val TAG = "NoteListFragment"
+
 class NoteListFragment : Fragment() {
 
     private var _binding: FragmentNotesListBinding? = null

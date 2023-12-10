@@ -3,7 +3,7 @@ package com.bignerdranch.android.myapplication.ui.notes
 import android.content.Context
 import androidx.room.Room
 import com.bignerdranch.android.myapplication.ui.notes.database.NoteDatabase
-import com.bignerdranch.android.myapplication.ui.notes.database.migration_1_2
+import com.bignerdranch.android.myapplication.ui.notes.database.migration_1_4
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
@@ -21,7 +21,7 @@ class NoteRepository private constructor(
         NoteDatabase::class.java,
         DATABASE_NAME
     )
-        .addMigrations(migration_1_2)
+        .addMigrations(migration_1_4)
         .build()
 
     fun getNote(): Flow<List<Note>> = database.noteDao().getNotes()
@@ -31,6 +31,12 @@ class NoteRepository private constructor(
     fun updateNote(note: Note){
         coroutineScope.launch {
             database.noteDao().updateNote(note)
+        }
+    }
+
+    fun deleteNote(note: Note){
+        coroutineScope.launch {
+            database.noteDao().deleteNote(note)
         }
     }
 

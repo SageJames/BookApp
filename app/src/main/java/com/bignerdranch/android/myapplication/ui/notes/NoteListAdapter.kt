@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.myapplication.databinding.ListItemNoteBinding
+import java.text.SimpleDateFormat
 import java.util.UUID
 
 class NoteHolder(
@@ -12,7 +13,9 @@ class NoteHolder(
 
     fun bind(note: Note, onNoteClicked: (noteId: UUID) -> Unit){
         binding.noteTitle.text = note.title
-        binding.noteDate.text = note.date.toString()
+        val formatter = SimpleDateFormat("MM/dd/yyyy")
+        val strDate = formatter.format(note.date)
+        binding.noteDate.text = strDate
 
         binding.root.setOnClickListener {
             onNoteClicked(note.id)

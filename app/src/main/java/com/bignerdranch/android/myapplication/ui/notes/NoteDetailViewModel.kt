@@ -31,6 +31,13 @@ class NoteDetailViewModel(noteId: UUID): ViewModel(){
         }
     }
 
+    fun deleteNote(){
+        note.value?.let {
+            noteRepository.deleteNote(it)
+        }
+        _note.value = null
+    }
+
 
     override fun onCleared() {
         super.onCleared()
