@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "777166897613",
+    "project_id": "booknotes-f3c99",
+    "storage_bucket": "booknotes-f3c99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777166897613:android:bb4a91f420504140ab8484",
+        "android_client_info": {
+          "package_name": "com.bignerdranch.android.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt3yaAW_OLj_XB-LgYYcRxQfC6gud3d7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

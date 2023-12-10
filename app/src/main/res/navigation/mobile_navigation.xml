@@ -9,17 +9,51 @@
         android:id="@+id/nav_home"
         android:name="com.bignerdranch.android.myapplication.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/show_note_detail"
+            app:destination="@id/noteDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.bignerdranch.android.myapplication.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/show_note_detail"
+            app:destination="@id/noteDetailFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.bignerdranch.android.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_notes"
+        android:name="com.bignerdranch.android.myapplication.ui.notes.NoteListFragment"
+        android:label="@string/menu_notes"
+        tools:layout="@layout/fragment_notes_list" >
+        <action
+            android:id="@+id/show_note_detail"
+            app:destination="@id/noteDetailFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.bignerdranch.android.myapplication.ui.notes.NoteDetailFragment"
+        android:label="NoteDetailFragment"
+        tools:layout="@layout/fragment_note_detail">
+        <argument
+            android:name="noteId"
+            app:argType="java.util.UUID" />
+        <action
+            android:id="@+id/select_date"
+            app:destination="@id/datePickerFragment"/>
+    </fragment>
+    <dialog
+        android:id="@+id/datePickerFragment"
+        android:name="com.bignerdranch.android.myapplication.ui.notes.DatePickerFragment"
+        android:label="DatePickerFragment" >
+        <argument
+            android:name="noteDate"
+            app:argType="java.util.Date" />
+    </dialog>
 </navigation>
