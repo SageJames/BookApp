@@ -24,11 +24,12 @@ private var _binding: FragmentHomeBinding? = null
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
     _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
     val root: View = binding.root
 
 
       homeViewModel.noteCount.observe(viewLifecycleOwner) { count ->
-          binding.bookcount.text = "Number of notes: $count"
+          binding.bookcount.text = "Number of personal notes: $count"
       }
     return root
   }

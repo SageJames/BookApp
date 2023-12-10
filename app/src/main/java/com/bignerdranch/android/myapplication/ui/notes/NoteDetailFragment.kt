@@ -83,6 +83,10 @@ class NoteDetailFragment: Fragment() {
                 deleteCurrentNote()
             }
 
+            noteShare.setOnClickListener {
+                uploadCurrentNote()
+            }
+
             noteCamera.setOnClickListener {
                 photoName = "IMG_${Date()}.JPG"
                 val photoFile = File(requireContext().applicationContext.filesDir, photoName)
@@ -134,6 +138,11 @@ class NoteDetailFragment: Fragment() {
 
     private fun deleteCurrentNote(){
         noteDetailViewModel.deleteNote()
+        findNavController().navigateUp()
+    }
+
+    private fun uploadCurrentNote(){
+        noteDetailViewModel.shareNote()
         findNavController().navigateUp()
     }
 

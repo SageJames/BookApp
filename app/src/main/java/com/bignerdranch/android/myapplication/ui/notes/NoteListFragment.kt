@@ -13,7 +13,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.bignerdranch.android.myapplication.databinding.FragmentNotesListBinding
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -67,23 +66,6 @@ class NoteListFragment : Fragment() {
             _binding = null
         }
 
-
-
-    //Might have to move this to main for plus sign
-    fun showNewNote(){
-        viewLifecycleOwner.lifecycleScope.launch {
-            val newNote = Note(
-                id = UUID.randomUUID(),
-                title = "",
-                description = "",
-                date = Date()
-            )
-            noteListViewModel.addNote(newNote)
-            findNavController().navigate(
-                NoteListFragmentDirections.showNoteDetail(newNote.id)
-            )
-        }
-    }
 
 }
 

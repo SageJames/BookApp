@@ -1,8 +1,11 @@
 package com.bignerdranch.android.myapplication.ui.notes
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -37,6 +40,23 @@ class NoteDetailViewModel(noteId: UUID): ViewModel(){
         }
         _note.value = null
     }
+
+    fun shareNote() {
+        note.value?.let { note ->
+            val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("notes")
+
+            val noteId = database.push().getKey() ?: return
+
+            database.child(noteId).setValue(note)
+                .addOnSuccessListener {
+                    noteRepository.deleteNote(note)
+                }
+                .addOnFailureListener { e ->
+                    Log.e("Upload_Failed", "Failed to upload note to Firebase", e)
+                }
+        }
+    }
+
 
 
     override fun onCleared() {

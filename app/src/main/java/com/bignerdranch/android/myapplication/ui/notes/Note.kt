@@ -7,9 +7,9 @@ import java.util.UUID
 
 @Entity
 data class Note(
-    @PrimaryKey val id: UUID,
-    val title: String,
+    @PrimaryKey val id: UUID = UUID.randomUUID(),
+    val title: String = "",
     val description: String? = null,
-    val date: Date,
+    val date: Date = Date(),
     val photoFileName: String? = null
 )
